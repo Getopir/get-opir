@@ -1,0 +1,24 @@
+[package]
+name = "get-opir"
+version = "0.3.2"
+description = "Get OPIR personal desktop edition"
+authors = ["OPIR"]
+license-file = "../LICENSE.md"
+repository = "https://github.com/getopir/get-opir"
+edition = "2021"
+
+[lib]
+name = "get_opir_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[features]
+default = ["custom-protocol"]
+custom-protocol = ["tauri/custom-protocol"]
